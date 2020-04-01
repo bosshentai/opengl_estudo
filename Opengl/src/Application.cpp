@@ -55,7 +55,8 @@ int main(void)
 
     std::cout << glGetString(GL_VERSION) << std::endl;
 
-    {/*
+    {
+        /*
        float positions[] = {
 
                 -50.0f, -50.0f, 0.0f,0.0f, //0
@@ -102,7 +103,7 @@ int main(void)
         std::cout << source.FragmentSource << std::endl;
 */
 
-        glm::mat4 proj = glm::ortho(0.0f,960.0f,0.0f,540.0f,-1.0f,1.0f);
+     /*   glm::mat4 proj = glm::ortho(0.0f,960.0f,0.0f,540.0f,-1.0f,1.0f);
         glm::mat4 view = glm::translate(glm::mat4(1.0f),glm::vec3(0, 0, 0));
       
 
@@ -113,7 +114,7 @@ int main(void)
 
        Texture texture("res/texture/exemplo2.png");
        texture.Bind();
-       shader.setUniform1i("u_Texture",0);
+       shader.setUniform1i("u_Texture",0);*/
 
        /*va.UnBind();
        vb.UnBind();
@@ -127,6 +128,10 @@ int main(void)
        ImGui::StyleColorsDark();
 
        test::TestClearColor test;
+
+       bool show_demo_window = true;
+       bool show_another_window = false;
+       ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
       /* glm::vec3 translationA(200, 200, 0);
        glm::vec3 translationB(400, 200, 0);
@@ -177,18 +182,18 @@ int main(void)
                 increment = 0.05f;
 
             r += increment;
-
+*/
             {
            
               
 
-                ImGui::SliderFloat3("Translation A", &translationA.x, 0.0f, 960.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
-                ImGui::SliderFloat3("Translation B", &translationB.x, 0.0f, 960.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
+               // ImGui::SliderFloat3("Translation A", &translationA.x, 0.0f, 960.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
+              //  ImGui::SliderFloat3("Translation B", &translationB.x, 0.0f, 960.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
                
 
                 ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
                // ImGui::End();
-            }*/
+            }
 
 
             ImGui::Render();
