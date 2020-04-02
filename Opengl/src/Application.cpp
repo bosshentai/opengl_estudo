@@ -1,9 +1,12 @@
+
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <stdio.h>
+
 
 
 #include "Renderer.h"
@@ -18,10 +21,7 @@
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 
-#include "imgui/imgui.h"
-#include "imgui/imgui_impl_glfw_gl3.h"
 
-#include "tests/TestClearColor.h"
 
 int main(void)
 {
@@ -48,7 +48,7 @@ int main(void)
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
 
-    glfwSwapInterval(5); // incrosizacao d tempo
+    glfwSwapInterval(1); // incrosizacao d tempo
 
     if (glewInit() != GLEW_OK)
         std::cout << "ERROR!" << std::endl;
@@ -65,11 +65,7 @@ int main(void)
 
        Renderer renderer;
 
-       ImGui::CreateContext();
-       ImGui_ImplGlfwGL3_Init(window, true);
-       ImGui::StyleColorsDark();
-
-       test::TestClearColor test;
+    
 
      
         /* Loop until the user closes the window */
@@ -78,17 +74,11 @@ int main(void)
             /* Render here */
            renderer.Clear();
 
-           test.OnUpdate(0.0f);
-           test.OnRender();
+         //  test.OnUpdate(0.0f);
+         //  test.OnRender();
 
-           ImGui_ImplGlfwGL3_NewFrame();
-           test.OnImGuiRender();
-
+         //  glfwPollEvents();
          
-
-            ImGui::Render();
-            ImGui_ImplGlfwGL3_RenderDrawData(ImGui::GetDrawData());
-
 
             /* Swap front and back buffers */
             glfwSwapBuffers(window);
@@ -100,8 +90,7 @@ int main(void)
         
     }
 
-    ImGui_ImplGlfwGL3_Shutdown();
-    ImGui::DestroyContext();
+ 
     glfwTerminate();
 
     glfwTerminate();
